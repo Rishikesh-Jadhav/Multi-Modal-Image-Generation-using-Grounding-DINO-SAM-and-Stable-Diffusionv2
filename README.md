@@ -1,40 +1,38 @@
-# Grounding-DINO-Segment-Anything-Model-and-Stable-Diffusion
+# Multi-Modal Image Generation using Grounding DINO Segment Anything Model and Stable Diffusion
 
 <img src="dino_sam_sdiff.png" alt="Results" width="50%">
 
 ## Overview
-This project focuses on combining Grounding DINO for zero-shot object detection with Meta AI's Segment Anything Model (SAM) for semantic segmentation and finally Stable Diffusion for inpainting the input image . The gaol of the project wast to integrate these techniques and deploy the model on Hugging Face with a Gradio interface for users to detect, segment regions and inpaint them in images. 
-NOTE: This application works best for image swith the resolution of 512x512 for images with a higher reolution the inapinting quality drops substantially.
+This project integrates multiple functionalities for image processing, including zero-shot object detection using Grounding DINO, followed by semantic segmentation with Meta AI's Segment Anything Model (SAM) and Finally Inpainting using Stability AI's Stable Diffusionv2 for inpainting the input image. The inpainting quality assessment was done using Peak Signal-to-Noise Ratio (PSNR) and Structural Similarity Index (SSIM).
+The gaol of the project was to integrate these techniques and deploy the model on Hugging Face with a Gradio interface for users to detect, segment regions and inpaint them in the provided images.  
 
+## Dependencies
+
+- gradio
+- numpy
+- torch
+- diffusers
+- PIL
+- cv2
+- skimage
+- huggingface_hub
+- GroundingDINO
+- torchvision
+- 
 ## Key Features
 
-- **Simulation Environment:** Utilized the AirSim simulator for autonomous vehicle control simulation.
-  
-- **Data Collection:** Gathered sensor data from the simulator, including front-facing camera images and state variables like steering, throttle, speed, and brake.
+- **Object Detection:** Utilizes DINO for object detection within images.
+- **Object Segmentation:** Utilizes SAM for object detection within the bounding box.
+- **Image Inpainting:** Implements Stable Diffusion for inpainting missing regions in images.
+- **Quality Assessment:** Computes PSNR and SSIM metrics to assess the quality of processed images.
 
-- **Neural Network Training:** Implemented a multi-layered neural network architecture suitable for control tasks, providing a jittery-free output.
+## Usage
 
-- **Evaluation Metrics:** Assessed model performance using Mean Squared Error (MSE) and qualitative indicators for real-world scenarios.
-
-## Methodology
-
-The project employs a systematic approach to augment conventional PID and MPC controllers with adaptive multi-layered neural networks. The neural network architecture combines convolutional layers for image analysis with additional numerical data, resulting in improved steering inputs. The method imitates the behavior of controllers rather than human inputs, ensuring unbiased data distribution and jitter-free outputs.
-
-## Experiments
-
-- **Data Collection Strategies:** Explored data collection using LIDAR-based obstacle detection, and waypoint-driven scenarios with PID and MPC controllers.
-
-   Data Collected: https://drive.google.com/drive/folders/1_nsHW8zgRbLLXc5W6bpPYwH0OgZFlNOx
-
-- **Fine-Tuning and Optimization:** Experimentation with dropout values, ROI selection, and optimization using the Nadam optimizer to enhance model performance.
-
-## Limitations
-
-- Inpainting Quality drops as resolution of the input image increases.
-
-## Conclusion
-
-This project successfully integrates imitation learning with Model Predictive Control, demonstrating a comprehensive approach to neural network architecture, training, and deployment. Challenges identified provide valuable insights for future exploration. The robustness and adaptability of the model, as well as its real-world limitations, contribute to ongoing research in deep learning for autonomous vehicles.
+1. **Input Image:** Upload an image or drag and drop the Input Image in the first window for processing.
+2. **Detection Prompt:** Enter a prompt in the first text box with the object/accessory you want to detect.
+3. **Mask Generation:**  Click on the Region of Interest created by the detected box in the second window for mask generation using SAM.(It is recommended to click on multiple areas of the ROI to get a better and finer mask).
+4. **Inpainting Prompt:** After you are satisfied with the mask, enter the prompt in the secnd text box for inpainting the region with the object.accesory of your choice.
+5. **Submit:** Click to initiate processing and view the output. (Submitting the prompt multiple times will create different variations)
 
 ## Testing Results
 
@@ -42,7 +40,9 @@ This project successfully integrates imitation learning with Model Predictive Co
 
 [![Click to watch the video](https://img.youtube.com/vi/wiVOA8MBcc4/0.jpg)](https://youtu.be/wiVOA8MBcc4)
 
-### References
+**NOTE:** This application works best for image swith the resolution of 512x512 for images with a higher resolution the inapinting quality drops substantially.
 
-1. Airsim: https://github.com/microsoft/AutonomousDrivingCookbook/tree/master/AirSimE2EDeepLearning
-2. Model predictive controller: https://github.com/asap-report/carla/tree/racetrack/PythonClient/racetrack 
+## References
+
+- [DINO GitHub Repository](https://github.com/facebookresearch/dino)
+- [Stable Diffusion Inpainting GitHub Repository](https://github.com/stabilityai/stable-diffusion-2-inpainting) 
