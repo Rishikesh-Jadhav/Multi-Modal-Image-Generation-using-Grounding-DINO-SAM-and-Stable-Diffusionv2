@@ -18,7 +18,7 @@ The gaol of the project was to integrate these techniques and deploy the model o
 - huggingface_hub
 - GroundingDINO
 - torchvision
-- 
+  
 ## Key Features
 
 - **Object Detection:** Utilizes DINO for object detection within images.
