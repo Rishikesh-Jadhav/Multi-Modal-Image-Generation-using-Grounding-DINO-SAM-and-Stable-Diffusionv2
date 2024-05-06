@@ -40,7 +40,7 @@ The gaol of the project was to integrate these techniques and deploy the model o
 
 [![Click to watch the video](https://img.youtube.com/vi/wiVOA8MBcc4/0.jpg)](https://youtu.be/wiVOA8MBcc4)
 
-**NOTE:** This application works best for image swith the resolution of 512x512 for images with a higher resolution the inapinting quality drops substantially.
+**NOTE:** This application works best for images with the resolution of 512x512. For images with a higher resolution the inapinting quality drops substantially.
 
 ## References
 
