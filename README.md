@@ -5,19 +5,6 @@
 ## Overview
 This project integrates multiple functionalities for image processing, including zero-shot object detection using Grounding DINO, followed by semantic segmentation with Meta AI's Segment Anything Model (SAM) and Finally Inpainting using Stability AI's Stable Diffusionv2 for inpainting the input image. The inpainting quality assessment was done using Peak Signal-to-Noise Ratio (PSNR) and Structural Similarity Index (SSIM).
 The gaol of the project was to integrate these techniques and deploy the model on Hugging Face with a Gradio interface for users to detect, segment regions and inpaint them in the provided images.  
-
-## Dependencies
-
-- gradio
-- numpy
-- torch
-- diffusers
-- PIL
-- cv2
-- skimage
-- huggingface_hub
-- GroundingDINO
-- torchvision
   
 ## Key Features
 
@@ -42,6 +29,18 @@ The gaol of the project was to integrate these techniques and deploy the model o
 
 **NOTE:** This application works best for images with the resolution of 512x512. For images with a higher resolution the inapinting quality drops substantially.
 
+## Dependencies
+
+- gradio
+- numpy
+- torch
+- diffusers
+- PIL
+- cv2
+- skimage
+- huggingface_hub
+- GroundingDINO
+- torchvision
 ## References
 
 - [DINO GitHub Repository](https://github.com/facebookresearch/dino)
